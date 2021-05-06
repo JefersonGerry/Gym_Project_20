@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Gym_Project_2.0</string>
+    <string name="username">User name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="fullname">Full name</string>
+    <string name="email">E-mail</string>
+    <string name="signup">Sign up</string>
+    <string name="loginhere">Alredy have an account ? <u>Login</u></string>
+    <string name="signuphere">Create a new account? <u>SignUp</u></string>
+    <string name="Welcome">Welcome </string>
+    <string name="passwordConfi">Confirm Password</string>
+    <string name="forget_password">Forget Password</string>
+
+</resources>
