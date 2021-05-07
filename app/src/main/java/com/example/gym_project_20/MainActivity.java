@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -24,8 +26,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-    TextView verifyMsg, titlePageMain,subTitlePageMain;
+    TextView verifyMsg, titlePageMain,subTitlePageMain, exerciceBtn;
     ImageView imageBackgroudMain;
+    Animation animimgpage, bttonemain, bttwomain, btthreemain, lefttorightmain;
+    View bgprogress, bgprogressstop;
     Button verifyEmail;
     FirebaseAuth auth;
     AlertDialog.Builder reset_alert;
@@ -37,14 +41,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         auth = FirebaseAuth.getInstance();
 
-        verifyMsg = findViewById(R.id.verifyEmailMsg);
-        verifyEmail = findViewById(R.id.verifyEmailBtn);
+
+
+        //Componetes da tela de Main activity
+        animimgpage = AnimationUtils.loadAnimation(this,R.anim.animimgpage);
+        bttonemain = AnimationUtils.loadAnimation(this,R.anim.bttone);
+        bttwomain = AnimationUtils.loadAnimation(this,R.anim.bttwo);
+        btthreemain = AnimationUtils.loadAnimation(this,R.anim.btthree);
+        lefttorightmain = AnimationUtils.loadAnimation(this,R.anim.lefttoright);
+
 
         titlePageMain = findViewById(R.id.titlePageMenu);
         subTitlePageMain = findViewById(R.id.subTitlePageMenu);
+        exerciceBtn =  findViewById(R.id.exerciceBtnMain);
         imageBackgroudMain = findViewById(R.id.imagemBackgroundMenu);
+        bgprogress =  findViewById(R.id.progressBtnMain);
+        bgprogressstop = findViewById(R.id.stopProgressBtnMain);
+
+        imageBackgroudMain.startAnimation(animimgpage);
+        titlePageMain.startAnimation(bttonemain);
+        subTitlePageMain.startAnimation(bttonemain);
+
+        exerciceBtn.startAnimation(btthreemain);
+        bgprogress.startAnimation(bttwomain);
+        bgprogressstop.startAnimation(lefttorightmain);
 
 
+        // faz parte da verificação de email
+        verifyMsg = findViewById(R.id.verifyEmailMsg);
+        verifyEmail = findViewById(R.id.verifyEmailBtn);
         reset_alert = new AlertDialog.Builder(this);
         inflater = this.getLayoutInflater();
 
@@ -71,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // daqui para baixo somente funções para app bar
     // cria menu action bar lateral
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
