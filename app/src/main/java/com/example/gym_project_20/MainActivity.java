@@ -43,14 +43,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //Componetes da tela de Main activity
+        // Carregando animações
         animimgpage = AnimationUtils.loadAnimation(this,R.anim.animimgpage);
         bttonemain = AnimationUtils.loadAnimation(this,R.anim.bttone);
         bttwomain = AnimationUtils.loadAnimation(this,R.anim.bttwo);
         btthreemain = AnimationUtils.loadAnimation(this,R.anim.btthree);
         lefttorightmain = AnimationUtils.loadAnimation(this,R.anim.lefttoright);
 
-
+        // carregando atributos de activity_main
         titlePageMain = findViewById(R.id.titlePageMenu);
         subTitlePageMain = findViewById(R.id.subTitlePageMenu);
         exerciceBtn =  findViewById(R.id.exerciceBtnMain);
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         bgprogress =  findViewById(R.id.progressBtnMain);
         bgprogressstop = findViewById(R.id.stopProgressBtnMain);
 
+        // aplicando animações
         imageBackgroudMain.startAnimation(animimgpage);
         titlePageMain.startAnimation(bttonemain);
         subTitlePageMain.startAnimation(bttonemain);
@@ -65,6 +66,16 @@ public class MainActivity extends AppCompatActivity {
         exerciceBtn.startAnimation(btthreemain);
         bgprogress.startAnimation(bttwomain);
         bgprogressstop.startAnimation(lefttorightmain);
+
+        // direicionando para a page de WorkActivity
+        exerciceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WorkoutActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         // faz parte da verificação de email
