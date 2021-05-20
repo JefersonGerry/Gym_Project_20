@@ -12,9 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gym_Project_20"
         android:usesCleartextTraffic="true">
+        <activity android:name=".RegisterActivity"></activity>
         <activity
             android:name=".WorkoutActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".TransitionScreen"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
