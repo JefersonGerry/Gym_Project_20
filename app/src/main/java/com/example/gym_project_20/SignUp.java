@@ -86,7 +86,7 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         // encaminhando usuário para próxima activity
-                        startActivity(new Intent(getApplicationContext(),Login.class));
+                        startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
                         finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
