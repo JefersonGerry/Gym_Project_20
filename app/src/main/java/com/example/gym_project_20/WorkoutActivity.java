@@ -2,6 +2,7 @@ package com.example.gym_project_20;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 public class WorkoutActivity extends AppCompatActivity {
 
     TextView titlepage, subtitlepage, intropage,subintropage,btnexercise,fitChestWork,fitscChestWork,
-            fitBicepsWork,fitscBicepsWork,fitShoulderWork,fitscShoulderWork,fitLegWork,fitscLegWork;
+            fitBicepsWork,fitscBicepsWork,fitShoulderWork,fitscShoulderWork,fitLegWork,fitscLegWork,workoutBack;
     LinearLayout fitChest,fitBiceps,fitShoulder,fitLeg;
     View divpage, bgprogress;
     Animation bttone,bttwo, bttfour, bttfive,bttsix,bttsevem,btteight;
@@ -50,6 +51,7 @@ public class WorkoutActivity extends AppCompatActivity {
         fitLeg = findViewById(R.id.fitTitleLeg);
         fitLegWork = findViewById(R.id.fitLegWork);
         fitscLegWork = findViewById(R.id.fitscLegWork);
+        workoutBack = findViewById(R.id.workoutBackBtn);
 
         divpage = findViewById(R.id.divpageWork);
         bgprogress = findViewById(R.id.progressBtnWork);
@@ -70,6 +72,51 @@ public class WorkoutActivity extends AppCompatActivity {
 
         btnexercise.startAnimation(btteight);
         bgprogress.startAnimation(bttsevem);
+
+        fitChestWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WorkoutActivity.this, chestYoutubeVideos.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        fitBicepsWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WorkoutActivity.this, bicepsYoutubeVideos.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        fitShoulderWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WorkoutActivity.this, shoulderYoutubeVideos.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        fitLegWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WorkoutActivity.this, legYoutubeVideos.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        workoutBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WorkoutActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 }

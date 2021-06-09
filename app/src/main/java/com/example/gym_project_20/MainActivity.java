@@ -122,6 +122,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         // execução de reset de senha do usuário
+
+        if (item.getItemId() == R.id.profileBtn) {
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+        }
+
         if (item.getItemId() == R.id.resetUserPassword) {
             startActivity(new Intent(getApplicationContext(), ResetPassword.class));
         }
